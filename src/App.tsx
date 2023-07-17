@@ -1,8 +1,11 @@
-import { useState } from "react";
-import "./App.css";
+import { Button, ButtonGroup } from '@chakra-ui/react';
 
 function App() {
-  return <></>;
+  return <>
+  <Button colorScheme='teal' size='sm'>
+    Button
+  </Button>
+  </>;
 }
 
 export default App;
