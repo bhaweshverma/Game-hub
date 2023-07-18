@@ -15,12 +15,10 @@ function App() {
           <NavBar></NavBar>
         </GridItem>
         <Show above="lg">
-          <GridItem area="aside" bg="gold">
-            <GameGrid></GameGrid>
-          </GridItem>
+          <GridItem area="aside">Aside</GridItem>
         </Show>
-        <GridItem area="main" bg="dodgerblue">
-          Main
+        <GridItem area="main">
+          <GameGrid></GameGrid>
         </GridItem>
       </Grid>
     </>
