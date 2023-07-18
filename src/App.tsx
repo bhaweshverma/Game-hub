@@ -1,8 +1,28 @@
-import { useState } from "react";
-import "./App.css";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import GameGrid from "./components/GameGrid";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Grid
+        templateAreas={{
+          base: `"nav" "main"`, //one column for mobiles
+          lg: `"nav nav" "aside main"`, //for devices larger than 1024px
+        }}
+      >
+        <GridItem area="nav">
+          <NavBar></NavBar>
+        </GridItem>
+        <Show above="lg">
+          <GridItem area="aside">Aside</GridItem>
+        </Show>
+        <GridItem area="main">
+          <GameGrid></GameGrid>
+        </GridItem>
+      </Grid>
+    </>
+  );
 }
 
 export default App;
