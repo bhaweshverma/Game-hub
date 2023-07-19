@@ -1,6 +1,7 @@
 import GenreSkeleton from "./GenreSkeleton";
-import { Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
+import icon from "../assets/react.svg";
 
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();
@@ -11,11 +12,16 @@ const GenreList = () => {
       {error && <Text>{error}</Text>}
       {isLoading &&
         skeletons.map((val) => <GenreSkeleton key={val}></GenreSkeleton>)}
-      <ul>
+      <List>
         {data.map((genre) => (
-          <li key={genre.id}>{genre.name}</li>
+          <ListItem key={genre.id}>
+            <HStack spacing={2}>
+              <Image boxSize="32px" borderRadius={8} src={icon} />
+              <Text fontSize="lg">{genre.name}</Text>
+            </HStack>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </>
   );
 };
