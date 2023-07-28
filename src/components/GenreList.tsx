@@ -13,8 +13,9 @@ import icon from "../assets/react.svg";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenreList = ({ onSelectGenre }: GenreListProps) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = new Array(10).map((v, i) => i + 1);
   if (isLoading) return <Spinner />;
@@ -29,6 +30,7 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
             <HStack spacing={2}>
               <Image boxSize="32px" borderRadius={8} src={icon} />
               <Button
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
                 variant="link"
