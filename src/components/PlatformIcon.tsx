@@ -11,14 +11,14 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Platform } from "../hooks/usePlatforms";
 import { HStack, Icon, Text } from "@chakra-ui/react";
+import { IconType } from "react-icons";
 
 interface PlatformIconProps {
   platforms: Platform[];
 }
 
 const PlatformIcon = ({ platforms }: PlatformIconProps) => {
-  //: {[key:string]: string} =
-  const iconMap = {
+  const iconMap: { [key: string]: IconType } = {
     //name: PlayStation
     //slug: playstation
     pc: FaWindows,
