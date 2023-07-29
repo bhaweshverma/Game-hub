@@ -7,6 +7,7 @@ import {
   Spinner,
   Text,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import icon from "../assets/react.svg";
@@ -24,12 +25,22 @@ const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
       {error && <Text>{error}</Text>}
       {isLoading &&
         skeletons.map((val) => <GenreSkeleton key={val}></GenreSkeleton>)}
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {data.map((genre) => (
           <ListItem key={genre.id}>
             <HStack spacing={2}>
-              <Image boxSize="32px" borderRadius={8} src={icon} />
+              <Image
+                boxSize="32px"
+                objectFit="cover"
+                borderRadius={8}
+                src={icon}
+              />
               <Button
+                whiteSpace="normal"
+                textAlign="left"
                 fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
