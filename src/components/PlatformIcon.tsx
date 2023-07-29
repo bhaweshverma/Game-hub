@@ -17,6 +17,7 @@ interface PlatformIconProps {
 }
 
 const PlatformIcon = ({ platforms }: PlatformIconProps) => {
+  //: {[key:string]: string} =
   const iconMap = {
     //name: PlayStation
     //slug: playstation
