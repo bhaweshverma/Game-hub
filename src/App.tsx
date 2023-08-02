@@ -8,6 +8,10 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import CartInfoRedux from "./components/CartInfoRedux";
+import CartItemsListRedux from "./components/CartItemsListRedux";
+import { useSelector } from "react-redux";
+import { RootState } from "./utils/appStore";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -20,6 +24,12 @@ function App() {
   //const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
+  //Redux Work starts from here
+  //subscribing to the store using selector
+  //store/slicer-name/state
+  const cartItems = useSelector((store: RootState) => store.cart.items);
+  console.log(cartItems);
+  //Redux work ends here
   return (
     <>
       <Grid
@@ -33,6 +43,9 @@ function App() {
         }}
       >
         <GridItem area="nav">
+          <CartInfoRedux cartSize={cartItems.length} />
+          <CartItemsListRedux items={cartItems} />
+
           <NavBar
             onSearch={(searchText) =>
               setGameQuery({ ...gameQuery, searchText: searchText })
