@@ -1,4 +1,13 @@
-import { Grid, GridItem, HStack, Show, Box } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  HStack,
+  Show,
+  Box,
+  Heading,
+  Image,
+  Button,
+} from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -8,6 +17,8 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import { Outlet, Link } from "react-router-dom";
+import logo from "./assets/logo.webp";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -22,6 +33,16 @@ function App() {
 
   return (
     <>
+      <Box>
+        <HStack justifyContent="space-between">
+          <Image src={logo} boxSize="60px"></Image>
+          <Box padding={5}>
+            <Link to="/contact">Contact</Link>
+            <a href="/about">About</a>
+          </Box>
+        </HStack>
+      </Box>
+      <Outlet />
       <Grid
         templateAreas={{
           base: `"nav" "main"`, //one column for mobiles
@@ -73,5 +94,4 @@ function App() {
     </>
   );
 }
-
 export default App;
