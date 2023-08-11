@@ -1,8 +1,8 @@
 # Game Hub Application
 
-## Resources
-
-- [CodeSandbox — Docs](https://codesandbox.io/docs/projects)
-- [CodeSandbox — Discord](https://discord.gg/Ggarp3pX5H)
-- [Vite — GitHub](https://github.com/vitejs/vite)
-- [Vite — Docs](https://vitejs.dev/guide/)
+## React Query
+ - npm i @tanstack/react-query@4.28
+ - Set up QueryClientProvider in main.tsx
+ - useQuery hook isLoading and error properties of hook
+ - npm i @tanstack/react-query-devtools@4.28
+ - Add the devtools in main.tsx

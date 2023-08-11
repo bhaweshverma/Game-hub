@@ -17,20 +17,21 @@ interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
 }
+
 const GenreList = ({ selectedGenre, onSelectGenre }: GenreListProps) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = new Array(10).map((v, i) => i + 1);
   if (isLoading) return <Spinner />;
   return (
     <>
-      {error && <Text>{error}</Text>}
+      {error && <Text>{error.message}</Text>}
       {isLoading &&
         skeletons.map((val) => <GenreSkeleton key={val}></GenreSkeleton>)}
       <Heading fontSize="2xl" marginBottom={3}>
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} marginBottom={2}>
             <HStack spacing={2}>
               <Image
