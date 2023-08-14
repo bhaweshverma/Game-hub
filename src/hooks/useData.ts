@@ -1,3 +1,4 @@
+/*
 import { AxiosRequestConfig, CanceledError } from "axios";
 import apiClient from "../services/api-client";
 import { useState, useEffect } from "react";
@@ -44,3 +45,4 @@ const useData = <T>(
 };
 
 export default useData;
+*/
